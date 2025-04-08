@@ -14,6 +14,10 @@ This plugin is based on the original **O.M.V (Open Manga Viewer)** plugin and ex
 - Supports folder-based manga organization on your server.
 - Dynamic loading of chapters and images using AJAX, reducing page load time.
 
+## To be Added
+
+- Show dates for when chapters have been added
+
 ## Installation
 
 1. **Download the Plugin**  
