@@ -21,7 +21,7 @@ This plugin is based on the original **O.M.V (Open Manga Viewer)** plugin and ex
 ## Installation
 
 1. **Download the Plugin**  
-   Download the latest version of the **Manga Viewer** plugin by [clicking here](https://github.com/sykhangdha/MangaViewer/blob/main/OMVReloaded.zip).  
+   Download the latest version of the **Manga Viewer** plugin by [clicking here](https://github.com/sykhangdha/MangaViewer/releases/download/1/OMVReloaded.zip)  
    Alternatively, you can clone or download the source code from this repository.
 
 2. **Install the Plugin**  
