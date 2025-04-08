@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Manga Viewer
  * Description: Displays manga chapters and images using shortcode [display_manga name="nameofmanga"].
- * Version: 1.3
+ * Version: 1.0
  * Author: HaSky
  */
 
