@@ -25,8 +25,7 @@ This plugin is based on the original **O.M.V (Open Manga Viewer)** plugin and ex
    Alternatively, you can clone or download the source code from this repository.
 
 2. **Install the Plugin**  
-   - Unzip the downloaded file.
-   - Upload the unzipped folder to your `wp-content/plugins/` directory on your WordPress server.
+   - Upload plugin to wordpress
 
 3. **Activate the Plugin**  
    Go to your WordPress admin panel (`wp-admin`), then navigate to **Plugins > Installed Plugins**. Find **Manga Viewer** in the list and click **Activate**.
