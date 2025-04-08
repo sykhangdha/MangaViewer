@@ -32,7 +32,7 @@ This plugin is based on the original **O.M.V (Open Manga Viewer)** plugin and ex
 
 ## Usage
 
-To display a manga reader on a page or post, use the following shortcode:
+To display a manga reader on a page or post, use the following shortcode, where nameofmanga is the folder name of the manga:
 
 ```plaintext
 [display_manga name="nameofmanga"]
