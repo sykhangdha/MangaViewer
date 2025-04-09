@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Manga Viewer
  * Description: Displays manga chapters and images using shortcode [display_manga name="nameofmanga"].
- * Version: 1.0
+ * Version: 1.4
  * Author: HaSky
  */
 
@@ -11,9 +11,10 @@ add_action('wp_enqueue_scripts', 'manga_viewer_enqueue_scripts');
 
 function manga_viewer_enqueue_scripts() {
     // Get the last modified time of the JS file to use as a version
-    $script_version = filemtime(plugin_dir_path(__FILE__) . 'script.js');
+    $script_path = plugin_dir_path(__FILE__) . 'script.js';
+    $script_version = file_exists($script_path) ? filemtime($script_path) : false;
 
-    // Enqueue the style and script with the versioning
+    // Enqueue the style and script with versioning
     wp_enqueue_style('manga-viewer-style', plugin_dir_url(__FILE__) . 'style.css');
     wp_enqueue_script('manga-viewer-script', plugin_dir_url(__FILE__) . 'script.js', array('jquery'), $script_version, true);
     
@@ -21,7 +22,6 @@ function manga_viewer_enqueue_scripts() {
         'ajaxurl' => admin_url('admin-ajax.php'),
     ));
 }
-
 
 function manga_viewer_shortcode($atts) {
     $atts = shortcode_atts(array('name' => ''), $atts);
@@ -61,11 +61,14 @@ function manga_viewer_get_chapters() {
     usort($dirs, function($a, $b) {
         return version_compare(basename($b), basename($a)); // Reverse order: Ch. 3, Ch. 2, Ch. 1
     });
-    $dirs = array_values($dirs);
-    
-    // Return all chapters (all subdirectories)
-    $chapters = array_map('basename', $dirs);
-    
+
+    $chapters = array_map(function($dir) {
+        $chapter_name = basename($dir);
+        $upload_time = filemtime($dir);
+        $upload_date = date("Y-m-d", $upload_time);
+        return array('name' => $chapter_name, 'date' => $upload_date);
+    }, $dirs);
+
     wp_send_json_success(array(
         'chapters' => $chapters
     ));
@@ -96,3 +99,4 @@ function manga_viewer_get_images() {
 
     wp_send_json_success($image_urls);
 }
+?>
