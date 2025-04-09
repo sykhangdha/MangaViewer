@@ -15,6 +15,9 @@ This plugin is based on the original **O.M.V (Open Manga Viewer)** plugin and ex
 - Supports folder-based manga organization on your server.
 - Dynamic loading of chapters and images using AJAX, reducing page load time.
 
+## Being Worked on
+- A basic starter theme for users to understand how to use the plugin with a theme [MangaViewer DEMO](https://skymanga.42web.io/)
+
 ## Changes and Improvements
 
 ### 1. **Volume and Chapter Sorting (Vol. x Ch. x and Ch. x formats)**
