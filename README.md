@@ -11,13 +11,26 @@ This plugin is based on the original **O.M.V (Open Manga Viewer)** plugin and ex
 - Toggle between **List View** and **Paged View** to view images.
 - Navigation between manga chapters with **Previous** and **Next Chapter** buttons.
 - **Back to Chapter List** button to return to the list of chapters.
+- **Chapter Date**: Display the upload date next to chapter names.
 - Supports folder-based manga organization on your server.
 - Dynamic loading of chapters and images using AJAX, reducing page load time.
 
-## To be Added
+## Changes and Improvements
 
-- ~Show dates for when chapters have been added~ *Added but not yet available in the release until other features are ready
-- Add way to detect alternative naming methods for chapters(currently folder names for chapters must be Ch. 1 for example)
+### 1. **Volume and Chapter Sorting (Vol. x Ch. x and Ch. x formats)**
+
+The plugin has been updated to correctly handle and sort manga chapters that include both volume numbers (`Vol. x`) and standalone chapter numbers (`Ch. x`). 
+
+- **Volume and Chapter Sorting**: If the chapter folder name includes a `Vol. x Ch. y` format (e.g., `Vol. 1 Ch. 1.1`), it is properly sorted by the volume and chapter numbers.
+- **Standalone Chapter Sorting**: If the chapter folder name is in the format `Ch. x` (e.g., `Ch. 1`, `Ch. 2`), the plugin will sort these chapters correctly as well.
+
+### 2. **Improved Folder Name Parsing**
+
+The plugin now correctly parses chapter folder names that may contain spaces, special characters, or numbers in different formats. Whether the folder name is `Vol. 1 Ch. 1.1` or `Ch. 1`, it will be handled correctly in the chapter list and sorting logic.
+
+### 3. **AJAX Updates for Chapter and Image Fetching**
+
+The plugin uses AJAX to dynamically load manga chapters and images. The changes ensure that the plugin can correctly fetch chapters and images even when there are mixed naming formats.
 
 ## Installation
 
