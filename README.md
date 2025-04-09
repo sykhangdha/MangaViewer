@@ -17,9 +17,7 @@ This plugin is based on the original **O.M.V (Open Manga Viewer)** plugin and ex
 ## To be Added
 
 - ~Show dates for when chapters have been added~ *Added but not yet available in the release until other features are ready
-- Notification system for when new chapters are released 
 - Add way to detect alternative naming methods for chapters(currently folder names for chapters must be Ch. 1 for example)
-- Create starter theme that can be easily modified to work with the viewer
 
 ## Installation
 
