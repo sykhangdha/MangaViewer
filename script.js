@@ -141,17 +141,17 @@ jQuery(document).ready(function ($) {
         $('#manga-images').append($nav);
 
         $('#prev-chapter-bottom').off().on('click', () => {
-            if (currentChapterIndex < allChapters.length - 1) {
+            if (currentChapterIndex > 0) {  // Fixed condition
                 $('html, body').animate({ scrollTop: 0 }, 400, () => {
-                    loadImages(allChapters[currentChapterIndex + 1].name);
+                    loadImages(allChapters[currentChapterIndex - 1].name);  // Load previous chapter
                 });
             }
         });
 
         $('#next-chapter-bottom').off().on('click', () => {
-            if (currentChapterIndex > 0) {
+            if (currentChapterIndex < allChapters.length - 1) {  // Fixed condition
                 $('html, body').animate({ scrollTop: 0 }, 400, () => {
-                    loadImages(allChapters[currentChapterIndex - 1].name);
+                    loadImages(allChapters[currentChapterIndex + 1].name);  // Load next chapter
                 });
             }
         });
