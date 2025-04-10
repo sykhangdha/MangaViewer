@@ -34,6 +34,15 @@ jQuery(document).ready(function ($) {
             if (res.success) {
                 allChapters = res.data.chapters;
 
+                // Sort chapters properly (handles sub-chapters like Ch. 104.4, Ch. 104.3, etc.)
+                allChapters.sort((a, b) => {
+                    const parseChapter = str => {
+                        const match = str.match(/Ch\.?\s*(\d+(?:\.\d+)?)/i);
+                        return match ? parseFloat(match[1]) : 0;
+                    };
+                    return parseChapter(b.name) - parseChapter(a.name);
+                });
+
                 const html = allChapters.map(ch => {
                     const name = ch.name;
                     const date = ch.date ? ` <span class="chapter-date">(${ch.date})</span>` : '';
@@ -141,17 +150,17 @@ jQuery(document).ready(function ($) {
         $('#manga-images').append($nav);
 
         $('#prev-chapter-bottom').off().on('click', () => {
-            if (currentChapterIndex > 0) {  // Fixed condition
+            if (currentChapterIndex > 0) {
                 $('html, body').animate({ scrollTop: 0 }, 400, () => {
-                    loadImages(allChapters[currentChapterIndex - 1].name);  // Load previous chapter
+                    loadImages(allChapters[currentChapterIndex - 1].name);
                 });
             }
         });
 
         $('#next-chapter-bottom').off().on('click', () => {
-            if (currentChapterIndex < allChapters.length - 1) {  // Fixed condition
+            if (currentChapterIndex < allChapters.length - 1) {
                 $('html, body').animate({ scrollTop: 0 }, 400, () => {
-                    loadImages(allChapters[currentChapterIndex + 1].name);  // Load next chapter
+                    loadImages(allChapters[currentChapterIndex + 1].name);
                 });
             }
         });
@@ -190,6 +199,6 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    // Start the viewer
+    // Start viewer
     loadChapters();
 });
